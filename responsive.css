@@ -1,0 +1,421 @@
+@media only screen and (max-width: 1198px) {
+  .rightSection {
+    width: 95%;
+  }
+
+  .leftSection {
+    width: 95%;
+  }
+  .rowService1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .serviceBox {
+    margin: 20px;
+  }
+
+  .choose {
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: 1038px) {
+  .specializeCon {
+    justify-content: center;
+  }
+
+  .specBox {
+    margin: 20px;
+  }
+  .contactContainer {
+    justify-content: center;
+  }
+
+  .copy {
+    justify-content: center;
+  }
+
+  .firstpart-foot {
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 788px) {
+  .row1 .box1 {
+    margin: 10px;
+  }
+  .boxContainer .row1 {
+    display: flex;
+    margin: 0;
+  }
+
+  .security {
+    padding: 4rem 2rem;
+    justify-content: center;
+  }
+
+  .choose {
+    padding-top: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .threeboxes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .heading-uae h1 {
+    font-size: 2.3rem;
+  }
+
+  .heading-us h1 {
+    font-size: 2.3rem;
+  }
+
+  .heading-uae p {
+    font-size: 15px;
+  }
+
+  .heading-us p {
+    font-size: 15px;
+  }
+
+  .why-imp ul li {
+    font-size: 15px;
+  }
+
+  .row1 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .whatBox {
+    width: 100%;
+  }
+
+  .why-imp {
+    padding-left: 1rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .info-about-left {
+    width: 93%;
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  .home .homeContainer {
+    margin-left: 2rem;
+  }
+  .homeContainer h1 {
+    font-size: 2.1rem;
+  }
+  .chooseRight img {
+    width: 35rem;
+  }
+
+  .leftcta-info {
+    width: 32rem;
+  }
+
+  .form input {
+    width: 29rem;
+  }
+  .form textarea {
+    width: 29rem;
+  }
+}
+
+@media only screen and (max-width: 532px) {
+  .leftcta-info {
+    width: 27rem;
+  }
+
+  .form input {
+    width: 24rem;
+  }
+
+  .form textarea {
+    width: 24rem;
+  }
+}
+
+/* @media only screen and (max-width: 599px) {
+  .home .homeContainer {
+    margin-left: 1rem;
+  }
+  .homeContainer h1 {
+    font-size: 2.1rem;
+  }
+  .chooseRight img {
+    width: 35rem;
+  }
+} */
+
+@media only screen and (max-width: 440px) {
+  .leftcta-info {
+    width: 24rem;
+  }
+
+  .form input {
+    width: 21rem;
+  }
+
+  .form textarea {
+    width: 21rem;
+  }
+}
+
+@media only screen and (max-width: 513px) {
+  .specBox {
+    width: 27rem;
+  }
+}
+@media only screen and (max-width: 426px) {
+  .homeContainer h1 {
+    font-size: 1.8rem;
+  }
+
+  .homeContainer h1 {
+    font-size: 1.8rem;
+  }
+
+  .aboutInfo p {
+    font-size: 18px;
+    margin: 0;
+  }
+
+  .rightSection {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .box1 p {
+    font-size: 17px;
+  }
+
+  .serviceHeader h2 {
+    font-size: 1.7rem;
+    text-align: center;
+  }
+  .specBox {
+    width: 23rem;
+  }
+
+  .middelSec p {
+    font-family: basic;
+    font-size: 17px;
+  }
+
+  .bottomSec .corporate h3 {
+    font-size: 18px;
+  }
+
+  .firstRight p {
+    font-size: 17px;
+  }
+
+  .firstLeft img {
+    width: 28rem;
+  }
+
+  .chooseLeft .leftP {
+    margin-bottom: 15px;
+    font-size: 17px;
+  }
+
+  .chooseLeft .leftP {
+    margin-bottom: 15px;
+    font-size: 17px;
+  }
+
+  .chooseRight img {
+    width: 25rem;
+  }
+  .contactBox1 a,
+  p {
+    font-size: 17px;
+  }
+
+  .contactBox1 {
+    padding: 20px;
+  }
+  .comapnyName p {
+    font-size: 16px;
+  }
+
+  .img-about-right img {
+    width: 22rem;
+  }
+
+  .info-about-left h2 {
+    font-family: headings;
+    color: #03045e;
+    font-size: 22px;
+  }
+  .info-about-left p {
+    font-size: 18px;
+  }
+
+  .heading-uae h1 {
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  .heading-us h1 {
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  .heading-uae p {
+    font-size: 13px;
+    text-align: left;
+  }
+
+  .heading-us p {
+    font-size: 13px;
+    text-align: left;
+  }
+
+  .why-imp h2 {
+    font-family: headings;
+    font-size: 20px;
+  }
+
+  .whatBox b {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 376px) {
+  .homeContainer h1 {
+    font-size: 1.6rem;
+  }
+
+  .homeContainer p {
+    font-size: 13px;
+  }
+
+  .home {
+    height: 70vh;
+  }
+
+  .box1 p {
+    font-size: 15px;
+  }
+
+  .leftHeading h2 {
+    text-align: center;
+  }
+  .headingAbout h2 {
+    text-align: center;
+  }
+
+  .serviceBox {
+    width: 20rem;
+  }
+  .img-about-right img {
+    width: 20rem;
+  }
+
+  .info-about-left h2 {
+    font-size: 20px;
+  }
+  .info-about-left p {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (max-width: 396px) {
+  .specBox {
+    width: 20rem;
+  }
+
+  .middelSec p {
+    font-family: basic;
+    font-size: 16px;
+  }
+
+  .firstRight h2 {
+    font-size: 1.6rem;
+  }
+
+  .firstLeft img {
+    width: 26rem;
+  }
+
+  .chooseRight img {
+    width: 23rem;
+  }
+
+  .chooseBoxes p {
+    font-size: 16px;
+  }
+
+  .software1 img {
+    width: 11rem;
+  }
+
+  .contactHeading h2 {
+    font-size: 1.6rem;
+  }
+
+  .contactBox1 a,
+  p {
+    font-size: 15px;
+  }
+
+  .chooseRight img {
+    width: 21rem;
+  }
+
+  .headingSoftware h2 {
+    font-size: 1.6rem;
+  }
+
+  .onebox p {
+    font-size: 15px;
+  }
+
+  .leftcta-info {
+    width: 22rem;
+  }
+
+  .form input {
+    width: 19rem;
+  }
+
+  .form textarea {
+    width: 19rem;
+  }
+
+  .heading-us h1 {
+    font-size: 1.8rem;
+}
+}
+
+@media only screen and (max-width: 359px) {
+  .leftcta-info {
+    width: 20rem;
+  }
+
+  .form input {
+    width: 17rem;
+  }
+
+  .form textarea {
+    width: 17rem;
+  }
+}
