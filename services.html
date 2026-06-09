@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Meridian Financial Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --white:    #ffffff;
+  --offwhite: #f8f7f4;
+  --light:    #f0ede8;
+  --border:   #03055e42;
+  --border2:  #d4cfc5;
+  --text:     #1a1a1a;
+  --text2:    #3d3d3d;
+  --muted:    #7a7670;
+  --gold:     #03045e;
+  --gold-lt:  #90e0ef;
+  --gold-bg:  #caf0f844;
+  --radius:   6px;
+  --px:       clamp(18px, 5vw, 72px);
+}
+
+html { scroll-behavior: smooth; }
+
+@font-face {
+  font-family: basic;
+  src: url("./SFUIText/SFUIText-Medium.otf");
+}
+@font-face {
+  font-family: headings;
+  src: url("./SFUIText/SFUIText-Bold.otf");
+}
+
+body {
+  font-family: basic;
+  background: var(--white);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--offwhite);
+  border-bottom: 1px solid var(--border);
+  padding: clamp(52px, 10vw, 100px) var(--px) clamp(48px, 8vw, 88px);
+  /* position: relative; */
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: min(500px, 60vw); height: 100%;
+  background: radial-gradient(ellipse 80% 70% at 80% 40%, rgba(184,150,46,.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 1200px; margin: 0 auto; }
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: clamp(.68rem, 1.8vw, .75rem);
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: clamp(20px, 4vw, 32px);
+  animation: fadeUp .6s ease both;
+}
+.hero-eyebrow::before {
+  content: ''; display: block;
+  width: clamp(24px, 4vw, 40px); height: 1px; background: var(--gold);
+}
+
+.hero h1 {
+  font-family: headings;
+  font-size: clamp(2.4rem, 6.5vw, 5.8rem);
+  font-weight: 400; line-height: 1.08;
+  letter-spacing: -.02em;
+  color: var(--text);
+  max-width: 820px;
+  animation: fadeUp .6s .08s ease both;
+}
+.hero h1 em { font-style: italic; color: var(--gold); }
+
+.hero-sub {
+  margin-top: clamp(18px, 3vw, 28px);
+  max-width: 540px;
+  font-size: clamp(.88rem, 2vw, 1rem);
+  line-height: 1.8; color: var(--muted); font-weight: 400;
+  animation: fadeUp .6s .16s ease both;
+}
+
+.hero-stats {
+  display: flex; flex-wrap: wrap;
+  gap: clamp(24px, 4vw, 60px);
+  margin-top: clamp(36px, 6vw, 60px);
+  animation: fadeUp .6s .24s ease both;
+}
+.stat { display: flex; flex-direction: column; gap: 4px; }
+.stat-num {
+  font-family: basic;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 500; color: var(--text); line-height: 1;
+}
+.stat-num span { color: var(--gold); }
+.stat-label {
+  font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ─── SECTION LABEL ─── */
+.sec-label {
+  padding: clamp(48px, 7vw, 80px) var(--px) 0;
+  max-width: calc(1200px + var(--px) * 2);
+  margin: 0 auto;
+}
+.sec-label-inner {
+  display: flex; align-items: center; gap: 16px;
+}
+.sec-label-inner span {
+  font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold); white-space: nowrap;
+}
+.sec-label-inner::after {
+  content: ''; flex: 1; height: 1px; background: var(--border2);
+}
+
+/* ─── SERVICES GRID ─── */
+.services-wrap {
+  padding: clamp(28px, 4vw, 48px) var(--px) clamp(60px, 10vw, 100px);
+  max-width: calc(1200px + var(--px) * 2);
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(10px, 1.5vw, 16px);
+}
+
+/* Card base */
+.svc-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: clamp(28px, 4vw, 48px) clamp(24px, 3.5vw, 44px);
+  /* position: relative; overflow: hidden; */
+  transition: border-color .3s, box-shadow .3s, transform .3s;
+  /* opacity: 0; transform: translateY(20px); */
+  animation: fadeUp .6s ease forwards;
+}
+.svc-card:hover {
+  border-color: var(--gold-lt);
+  box-shadow: 0 8px 40px rgba(184,150,46,.1);
+  transform: translateY(-2px);
+}
+.svc-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-lt) 100%);
+  opacity: 0; transition: opacity .3s;
+}
+.svc-card:hover::before { opacity: 1; }
+
+.svc-card:nth-child(1) { animation-delay: .1s; }
+.svc-card:nth-child(2) { animation-delay: .18s; }
+.svc-card:nth-child(3) { animation-delay: .26s; }
+.svc-card:nth-child(4) { animation-delay: .34s; }
+.svc-card:nth-child(5) { animation-delay: .42s; }
+
+/* Spans */
+.span-7  { grid-column: span 7; }
+.span-5  { grid-column: span 5; }
+.span-4  { grid-column: span 4; }
+.span-8  { grid-column: span 8; }
+.span-12 { grid-column: span 12; }
+
+/* Featured card accent bg */
+.svc-card.featured {
+  background: var(--gold-bg);
+  border-color: rgba(184,150,46,.2);
+}
+
+/* Card internals */
+.svc-num {
+  font-family: basic;
+  font-size: .88rem; color: var(--gold);
+  letter-spacing: .12em; margin-bottom: 20px;
+  display: block; opacity: .7;
+}
+
+.svc-icon {
+  width: 44px; height: 44px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.svc-card h2 {
+  font-family: headings;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 500; line-height: 1.2;
+  color: var(--text); margin-bottom: 14px;
+  letter-spacing: -.01em;
+}
+.svc-card.featured h2 { font-size: clamp(1.7rem, 3.5vw, 2.3rem); }
+.svc-card.span-12 h2 { font-size: clamp(1.6rem, 3vw, 2rem); }
+
+.svc-card p {
+  font-size: clamp(.82rem, 1.6vw, .9rem);
+  line-height: 1.8; color: var(--muted);
+  font-weight: 400;
+}
+
+.svc-tags {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 22px;
+}
+.svc-tag {
+  font-size: .65rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--gold);
+  background: #90e1ef45;
+  border: 1px solid rgba(184,150,46,.22);
+  padding: 4px 10px; border-radius: 20px;
+}
+
+.svc-arrow {
+  display: inline-flex; align-items: center; justify-content: center;
+  position: fixed;
+  left: 1rem;
+  width: 34px; height: 34px;
+  border: 1px solid var(--border2); border-radius: 50%;
+  margin-top: 24px;
+}
+
+.svc-arrow svg {
+  width: 13px; height: 13px;
+  fill: none; stroke: var(--gold); stroke-width: 1.8;
+}
+.svc-card:hover .svc-arrow svg { stroke: #fff; }
+
+/* Last card horizontal layout on desktop */
+.svc-card.card-wide-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(24px, 4vw, 60px);
+  flex-wrap: wrap;
+}
+.card-wide-left { flex-shrink: 0; min-width: 200px; }
+.card-wide-right { flex: 1; min-width: min(100%, 260px); }
+
+/* ─── PROCESS ─── */
+.process-wrap {
+  background: var(--offwhite);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.process-inner-wrap {
+  max-width: calc(1200px + var(--px) * 2);
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 80px) var(--px);
+}
+.process-head {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+.process-head span {
+  font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold); white-space: nowrap;
+}
+.process-head::after {
+  content: ''; flex: 1; height: 1px; background: var(--border2);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.process-step {
+  padding: 0 clamp(16px, 3vw, 36px);
+  /* position: relative; */
+}
+.process-step:first-child { padding-left: 0; }
+.process-step:last-child { padding-right: 0; }
+.process-step + .process-step {
+  border-left: 1px solid var(--border2);
+}
+.process-num {
+  font-family: headings;
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  font-weight: 300; 
+  color: #03055e1c;
+  line-height: 1; margin-bottom: 10px;
+}
+.process-step h4 {
+  font-size: clamp(.8rem, 1.5vw, .9rem);
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--text); margin-bottom: 10px; font-weight: 600;
+}
+.process-step p {
+  font-size: clamp(.78rem, 1.4vw, .84rem);
+  line-height: 1.75; color: var(--muted);
+}
+
+/* ─── CTA ─── */
+.cta-wrap {
+  max-width: calc(1200px + var(--px) * 2);
+  margin: 0 auto;
+  padding: clamp(52px, 8vw, 88px) var(--px);
+}
+.cta-inner {
+  background: var(--text);
+  border-radius: clamp(8px, 2vw, 16px);
+  padding: clamp(36px, 6vw, 72px) clamp(28px, 5vw, 64px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(28px, 4vw, 48px);
+  flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta-inner::after {
+  content: '';
+  position: absolute; right: -80px; top: -80px;
+  width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,150,46,.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-text { flex: 1; min-width: min(100%, 280px); }
+.cta-text h2 {
+  font-family: headings;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 400; line-height: 1.2; color: #fff;
+}
+.cta-text p {
+  margin-top: 14px;
+  font-size: clamp(.82rem, 1.6vw, .92rem);
+  line-height: 1.75; color: rgba(255,255,255,.6);
+  max-width: 420px;
+}
+.cta-actions {
+  display: flex; flex-direction: column;
+  gap: 12px; flex-shrink: 0;
+  width: clamp(200px, 24vw, 260px);
+}
+.btn-primary {
+  display: block; width: 100%; padding: clamp(13px, 2vw, 16px) 28px;
+  background: var(--gold); color: #fff;
+  font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
+  font-weight: 600; border: none; border-radius: var(--radius);
+  cursor: pointer; text-decoration: none; text-align: center;
+  transition: background .25s, transform .2s;
+}
+.btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); }
+.btn-ghost {
+  display: block; width: 100%; padding: clamp(11px, 1.8vw, 14px) 28px;
+  background: transparent; color: rgba(255,255,255,.8);
+  font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,.2); border-radius: var(--radius);
+  cursor: pointer; text-decoration: none; text-align: center;
+  transition: border-color .25s, color .25s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,.6); color: #fff; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--offwhite);
+  border-top: 1px solid var(--border);
+  padding: clamp(28px, 4vw, 44px) var(--px);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 500;
+  color: var(--text); text-decoration: none; letter-spacing: .02em;
+}
+.footer-brand span { color: var(--gold); }
+footer p {
+  font-size: .76rem; color: var(--muted); letter-spacing: .04em;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── RESPONSIVE: Tablet (≤ 1024px) ─── */
+@media (max-width: 1024px) {
+  .span-7, .span-5, .span-4, .span-8 { grid-column: span 12; }
+
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(24px, 4vw, 36px) 0;
+  }
+  .process-step { padding: 0 clamp(16px, 3vw, 28px); }
+  .process-step:first-child { padding-left: 0; }
+  .process-step:nth-child(2) { border-left: 1px solid var(--border2); }
+  .process-step:nth-child(3) {
+    border-left: none; padding-left: 0;
+    border-top: 1px solid var(--border2); padding-top: clamp(20px, 3vw, 28px);
+  }
+  .process-step:nth-child(4) {
+    border-top: 1px solid var(--border2); padding-top: clamp(20px, 3vw, 28px);
+  }
+
+  .cta-actions { width: 100%; flex-direction: row; }
+  .cta-actions .btn-primary, .cta-actions .btn-ghost { flex: 1; }
+}
+
+/* ─── RESPONSIVE: Large mobile (≤ 768px) ─── */
+@media (max-width: 768px) {
+  .services-grid { gap: 10px; }
+
+  .card-wide-inner {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .card-wide-left, .card-wide-right { width: 100%; min-width: 0; }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+  .process-step + .process-step {
+    border-left: none;
+    border-top: 1px solid var(--border2);
+    padding-left: 0;
+    padding-top: clamp(18px, 3vw, 24px);
+    margin-top: 0;
+  }
+  .process-step:first-child { border-top: none; }
+  .process-step:nth-child(3) { border-left: none; }
+
+  .cta-inner { flex-direction: column; }
+  .cta-actions { flex-direction: column; width: 100%; }
+
+  footer { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+
+/* ─── RESPONSIVE: Small mobile (≤ 480px) ─── */
+@media (max-width: 480px) {
+  .hero-stats { gap: 20px; }
+  .stat-num { font-size: 1.7rem; }
+
+  .svc-card { padding: 28px 22px; }
+  .svc-card.featured { padding: 28px 22px; }
+
+  .svc-tags { gap: 5px; }
+  .svc-tag { font-size: .62rem; padding: 4px 9px; }
+
+  .services-grid { gap: 8px; }
+
+  .cta-inner { padding: 32px 24px; }
+  .cta-text h2 { font-size: 1.7rem; }
+}
+
+/* ─── RESPONSIVE: Extra small (≤ 360px) ─── */
+@media (max-width: 360px) {
+  :root { --px: 16px; }
+  .hero h1 { font-size: 2rem; }
+  .svc-card h2 { font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+
+  <!-- <nav>
+      <a href="#first"><img src="./Images/KAZ financial solution-01-01.png" alt="KAZ Financial Solutions" /></a>
+      <div class="navigation">
+        <ul>
+          <i class="fa-solid fa-xmark" id="menu-close"></i>
+          <li><a href="#first">Home</a></li>
+          <li><a href="./services.html">Services</a></li>
+          <li><a href="./uae-corporate-tax.html">UAE Outsourcing</a></li>
+          <li><a href="./us-accounting.html">US Outsourcing</a></li>
+          <li><a href="./about-us.html">About us</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+        <i class="fa-solid fa-bars-staggered" id="menu-btn"></i>
+      </div>
+    </nav> -->
+
+    <a href="./index.html" class="svc-arrow">
+        <svg viewBox="0 0 14 14"><line x1="2" y1="12" x2="12" y2="2"/><polyline points="5,2 12,2 12,9"/></svg>
+      </a>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Our Services</div>
+    <h1>Expert guidance for <em>every</em><br>financial challenge</h1>
+    <p class="hero-sub">From daily bookkeeping to complex tax strategy, Meridian Financial Group provides CPA-level expertise tailored to individuals and businesses at every stage of growth.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">2<span>+</span></div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10<span>+</span></div>
+        <div class="stat-label">Clients Served</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5<span></span></div>
+        <div class="stat-label">Core Services</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100<span>%</span></div>
+        <div class="stat-label">CPA Certified</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SECTION LABEL ══════════════ -->
+<div class="sec-label">
+  <div class="sec-label-inner">
+    <span>What We Offer</span>
+  </div>
+</div>
+
+<!-- ══════════════ SERVICES ══════════════ -->
+<div class="services-wrap">
+  <div class="services-grid">
+
+    <!-- 01 · Accounting — wide left -->
+    <div class="svc-card featured span-7">
+      <span class="svc-num">01</span>
+      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="8" width="38" height="32" rx="3" stroke="#b8962e" stroke-width="1.6"/>
+        <line x1="5" y1="18" x2="43" y2="18" stroke="#b8962e" stroke-width="1.5"/>
+        <line x1="18" y1="18" x2="18" y2="40" stroke="#b8962e" stroke-width="1.5"/>
+        <line x1="24" y1="24" x2="37" y2="24" stroke="#b8962e" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="24" y1="30" x2="37" y2="30" stroke="#b8962e" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="24" y1="36" x2="37" y2="36" stroke="#b8962e" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="9"  y1="24" x2="13" y2="24" stroke="#b8962e" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="9"  y1="30" x2="13" y2="30" stroke="#b8962e" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="9"  y1="36" x2="13" y2="36" stroke="#b8962e" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      <h2>Accounting Services</h2>
+      <p>We go beyond the numbers to understand your business operations, delivering a full suite of accounting services built around your specific needs and growth objectives. From financial statement preparation to management reporting, our CPAs keep your books accurate, compliant, and insightful — so you can focus on running your business.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">Financial Statements</span>
+        <span class="svc-tag">General Ledger</span>
+        <span class="svc-tag">Management Reports</span>
+        <span class="svc-tag">Cash Flow Analysis</span>
+        <span class="svc-tag">Payroll Support</span>
+        <span class="svc-tag">Month-End Close</span>
+      </div>
+      <!-- <a href="#" class="svc-arrow">
+        <svg viewBox="0 0 14 14"><line x1="2" y1="12" x2="12" y2="2"/><polyline points="5,2 12,2 12,9"/></svg>
+      </a> -->
+    </div>
+
+    <!-- 02 · Bookkeeping — narrow right -->
+    <div class="svc-card span-5">
+      <span class="svc-num">02</span>
+      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="9" y="5" width="30" height="38" rx="2" stroke="#b8962e" stroke-width="1.6"/>
+        <line x1="15" y1="14" x2="33" y2="14" stroke="#b8962e" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="15" y1="20" x2="33" y2="20" stroke="#b8962e" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="15" y1="26" x2="26" y2="26" stroke="#b8962e" stroke-width="1.2" stroke-linecap="round"/>
+        <circle cx="33" cy="34" r="7" fill="#fdf8ee" stroke="#b8962e" stroke-width="1.5"/>
+        <polyline points="30,34 32,36 36,31" stroke="#b8962e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <h2>Bookkeeping Services</h2>
+      <p>Accurate, timely bookkeeping is the foundation of sound financial management. We maintain your records with meticulous care — reconciling accounts, categorizing transactions, and producing monthly reports — so you always have a clear, real-time picture of your business finances.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">Monthly Reconciliation</span>
+        <span class="svc-tag">A/R &amp; A/P</span>
+        <span class="svc-tag">Bank Reconciliation</span>
+        <span class="svc-tag">Transaction Coding</span>
+      </div>
+      <!-- <a href="#" class="svc-arrow">
+        <svg viewBox="0 0 14 14"><line x1="2" y1="12" x2="12" y2="2"/><polyline points="5,2 12,2 12,9"/></svg>
+      </a> -->
+    </div>
+
+    <!-- 03 · QuickBooks — narrow left -->
+    <div class="svc-card span-4">
+      <span class="svc-num">03</span>
+      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="22" r="16" stroke="#b8962e" stroke-width="1.6"/>
+        <text x="24" y="29" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#b8962e" font-weight="400">Q</text>
+        <line x1="32" y1="32" x2="39" y2="40" stroke="#b8962e" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <h2>QuickBooks Bookkeeping</h2>
+      <p>Certified QuickBooks ProAdvisors setting up, cleaning, and optimizing your QuickBooks environment. Whether you're starting fresh or inheriting a messy file, we'll bring your books into order and train your team to work with confidence.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">Setup &amp; Migration</span>
+        <span class="svc-tag">Data Cleanup</span>
+        <span class="svc-tag">Staff Training</span>
+        <span class="svc-tag">Ongoing Support</span>
+      </div>
+      <!-- <a href="#" class="svc-arrow">
+        <svg viewBox="0 0 14 14"><line x1="2" y1="12" x2="12" y2="2"/><polyline points="5,2 12,2 12,9"/></svg>
+      </a> -->
+    </div>
+
+    <!-- 04 · Tax Preparation — wide right -->
+    <div class="svc-card featured span-8">
+      <span class="svc-num">04</span>
+      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 6h20l10 10v26a2 2 0 01-2 2H11a2 2 0 01-2-2V8a2 2 0 012-2z" stroke="#b8962e" stroke-width="1.6"/>
+        <polyline points="31,6 31,16 41,16" stroke="#b8962e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="16" y1="26" x2="32" y2="26" stroke="#b8962e" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="24" y1="22" x2="24" y2="30" stroke="#b8962e" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="16" y1="34" x2="24" y2="34" stroke="#b8962e" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="28" y1="34" x2="32" y2="34" stroke="#b8962e" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      <h2>Tax Preparation &amp; Planning</h2>
+      <p>Our CPAs stay current with every change in tax law to ensure you capture every available deduction and credit. We prepare personal and business returns with precision and attentiveness — minimizing your liability while keeping you fully compliant. Beyond preparation, we provide proactive year-round planning so you're never caught off guard at tax time.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">Individual Returns</span>
+        <span class="svc-tag">Business Returns</span>
+        <span class="svc-tag">S-Corp &amp; Partnership</span>
+        <span class="svc-tag">Estate &amp; Trust</span>
+        <span class="svc-tag">Year-Round Planning</span>
+        <span class="svc-tag">IRS Representation</span>
+      </div>
+      <!-- <a href="#" class="svc-arrow">
+        <svg viewBox="0 0 14 14"><line x1="2" y1="12" x2="12" y2="2"/><polyline points="5,2 12,2 12,9"/></svg>
+      </a> -->
+    </div>
+
+    <!-- 05 · Consulting — full width -->
+    <div class="svc-card span-12 card-wide-inner">
+      <div class="card-wide-left">
+        <span class="svc-num">05</span>
+        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="5,37 15,25 23,31 33,17 43,23" stroke="#b8962e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="43" cy="23" r="3.5" stroke="#b8962e" stroke-width="1.4"/>
+          <line x1="5" y1="43" x2="43" y2="43" stroke="#b8962e" stroke-width="1.2" stroke-linecap="round" opacity=".3"/>
+        </svg>
+        <h2>Financial Consulting<br>&amp; Advisory</h2>
+        <!-- <a href="#" class="svc-arrow">
+          <svg viewBox="0 0 14 14"><line x1="2" y1="12" x2="12" y2="2"/><polyline points="5,2 12,2 12,9"/></svg>
+        </a> -->
+      </div>
+      <div class="card-wide-right">
+        <p>Strategic financial advice tailored to your stage of growth. Whether you're launching a new venture, planning an acquisition, selecting a business entity, or preparing for a transition, our advisors bring the analytical depth and industry experience to guide your decisions with confidence.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Entity Selection</span>
+          <span class="svc-tag">Business Consulting</span>
+          <span class="svc-tag">Financial Analysis</span>
+          <span class="svc-tag">Buy / Sell Advisory</span>
+          <span class="svc-tag">Management Advisory</span>
+          <span class="svc-tag">Sales Tax Services</span>
+          <span class="svc-tag">1099 Filing</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════ PROCESS ══════════════ -->
+<section class="process-wrap">
+  <div class="process-inner-wrap">
+    <div class="process-head">
+      <span>How It Works</span>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <h4>Free Consultation</h4>
+        <p>We start with a no-obligation conversation to understand your financial picture, goals, and the challenges you're facing right now.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <h4>Custom Proposal</h4>
+        <p>You receive a clear, transparent scope of services and pricing — tailored specifically to your needs, not a one-size-fits-all package.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <h4>Seamless Onboarding</h4>
+        <p>We handle the transition — gathering records, setting up systems, and establishing a communication cadence that works for you.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <h4>Ongoing Partnership</h4>
+        <p>You gain a dedicated team monitoring your finances year-round, proactively surfacing insights and tax-saving opportunities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CTA ══════════════ -->
+<div class="cta-wrap" id="consultation">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2>Ready to simplify<br>your finances?</h2>
+      <p>Schedule a complimentary consultation with one of our CPAs. No pressure, no commitment just an honest conversation about how we can help you move forward.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="https://calendly.com/ammarkhanpur786/30min?month=2024-10&date=2024-10-31" class="btn-primary">Book Consultation</a>
+      <a href="https://wa.me/+918469302852" class="btn-ghost">+91 84693 02852</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="copy">
+      <div class="firstpart-foot">
+        <div class="logo-footer">
+          <img src="./Images/KAZ financial solution-01-01.png" alt="KAZ Financial Solutions">
+        </div>
+        <div class="comapnyName">
+          <h2>KAZ Financial Solutions</h2>
+          <p>Simplifying Your Books, Maximizing Your Return. </p>
+        </div>
+      </div>
+<div class="section">
+      <div class="secondpart-foot">
+        <p>Links</p>
+        <ul>
+          <a href="/about-us.html"><li>About Us</li></a>
+          <a href="/services.html"><li>Services</li></a>
+          <!-- <a href="/uae-corporate-tax.html"><li>UAE Outsourcing</li></a> -->
+          <a href="/us-accounting.html"><li>US Outsourcing</li></a>
+          <a href="/contact.html"><li>Contact</li></a>
+        </ul>
+      </div>
+      <div class="secondpart-foot">
+        <p>Social</p>
+        <ul>
+          <a href=""><li>Instagram</li></a>
+          <a href="https://www.linkedin.com/company/kaz-financial-solutions/"><li>Linkedin</li></a>
+          <a href="https://wa.me/+918469302852"><li>Whatsapp</li></a>
+        </ul>
+      </div>
+      <div class="secondpart-foot third">
+        <p>Contact Us</p>
+        <div class="">
+          <i class="fa-regular fa-envelope-open" aria-hidden="true"></i>
+          <p><a href="mailto:info@kazfinancialsolutions.com" target="_blank">info@kazfinancialsolutions.com</a></p>
+        </div>
+        <div class="">
+          <i class="fa-solid fa-square-phone" aria-hidden="true"></i>
+          <p><a href="https://wa.me/+918469302852" target="_blank">+91 8469302852</a></p>
+        </div>
+        <div class="">
+          <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+          <p class="addressP">7th floor, Unicus Shyamal, Shyamal<br>
+            Cross Road, Ahmedabad, Gujarat 380015</p>
+        </div>
+      </div>
+    </div>
+    </footer>
+    <hr class="footerHR">
+    <footer class="">
+      <p class="copyright">© KAZ Financial Solutions - 2026</p>
+      <p class="copyright marking">Created By Mustansir Rathwala</p>
+    </footer>
+
+</body>
+</html>

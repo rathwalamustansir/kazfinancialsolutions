@@ -35,7 +35,7 @@ nav .navigation {
   display: flex;
 }
 
-.dropdown {
+/* .dropdown {
   position: relative;
 }
 
@@ -64,7 +64,7 @@ nav .navigation {
 
 .dropdown:hover .dropdown-content {
   display: block;
-}
+} */
 
 .navigation ul li {
   padding: 0px 10px;
